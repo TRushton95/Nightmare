@@ -1,7 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cmxf4wn6bqlq8"]
+[gd_scene load_steps=3 format=3 uid="uid://cmxf4wn6bqlq8"]
 
-[ext_resource type="PackedScene" uid="uid://cx3gomotuy02j" path="res://entities/player/player.tscn" id="1_jrkpk"]
+[ext_resource type="PackedScene" uid="uid://cx3gomotuy02j" path="res://entities/units/player/player.tscn" id="1_jrkpk"]
+[ext_resource type="PackedScene" uid="uid://cdddjnw17uyyk" path="res://entities/props/torch/torch.tscn" id="2_h4ucr"]
 
 [node name="GameWorld" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_jrkpk")]
+position = Vector2(198, 178)
+
+[node name="Torch" parent="." instance=ExtResource("2_h4ucr")]
+position = Vector2(363, 172)

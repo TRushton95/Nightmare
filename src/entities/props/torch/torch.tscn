@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdddjnw17uyyk"]
+
+[ext_resource type="Script" path="res://entities/props/torch/torch.gd" id="1_ijq1g"]
+[ext_resource type="Texture2D" uid="uid://ddm4l41upn5oi" path="res://entities/props/torch/torch.256x256.png" id="2_7dksb"]
+
+[sub_resource type="Animation" id="Animation_pw0dk"]
+resource_name = "off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_kwao7"]
+resource_name = "on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pg5fj"]
+_data = {
+"off": SubResource("Animation_pw0dk"),
+"on": SubResource("Animation_kwao7")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2pems"]
+radius = 22.0
+height = 72.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wff0y"]
+size = Vector2(320, 352)
+
+[node name="Torch" type="StaticBody2D"]
+script = ExtResource("1_ijq1g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7dksb")
+hframes = 2
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pg5fj")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 90)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_2pems")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 16)
+shape = SubResource("RectangleShape2D_wff0y")
+debug_color = Color(0, 0.643137, 0.266667, 0.419608)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
