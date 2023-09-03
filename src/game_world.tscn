@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cmxf4wn6bqlq8"]
+[gd_scene load_steps=2 format=3 uid="uid://cmxf4wn6bqlq8"]
+
+[ext_resource type="PackedScene" uid="uid://cx3gomotuy02j" path="res://entities/player/player.tscn" id="1_jrkpk"]
 
 [node name="GameWorld" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_jrkpk")]
