@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo12iwx4loj6p"
-path="res://.godot/imported/interact.png-8417d70c9502af52a0c44d524142ea94.ctex"
+uid="uid://boi1om6joeilj"
+path="res://.godot/imported/interact_prompt.png-f61650a1125427c3520ab2866596b274.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/units/player/interact.png"
-dest_files=["res://.godot/imported/interact.png-8417d70c9502af52a0c44d524142ea94.ctex"]
+source_file="res://game_ui/interact_prompt/interact_prompt.png"
+dest_files=["res://.godot/imported/interact_prompt.png-f61650a1125427c3520ab2866596b274.ctex"]
 
 [params]
 

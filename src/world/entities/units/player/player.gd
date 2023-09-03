@@ -1,11 +1,11 @@
 extends CharacterBody2D
 class_name Player
 
+signal interactable_entered
+signal interactable_exited
+
 @export var movespeed = 400
-
 var interaction_candidates := []
-
-@onready var interact_icon : Sprite2D = $InteractIcon
 
 
 func _process(delta: float) -> void:
@@ -20,16 +20,12 @@ func _physics_process(delta: float) -> void:
 
 func add_interaction_candidate(candidate: Node2D) -> void:
 	interaction_candidates.push_back(candidate)
-	
-	if !interact_icon.visible:
-		interact_icon.show()
+	interactable_entered.emit()
 
 
 func remove_interaction_candidate(candidate: Node2D) -> void:
 	interaction_candidates.erase(candidate)
-	
-	if interaction_candidates.is_empty() && interact_icon.visible:
-		interact_icon.hide()
+	interactable_exited.emit()
 
 
 func _handle_interact() -> void:

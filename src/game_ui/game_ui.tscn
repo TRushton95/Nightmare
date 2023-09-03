@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://2srrecoefgb8"]
+
+[ext_resource type="Script" path="res://game_ui/game_ui.gd" id="1_htubn"]
+[ext_resource type="PackedScene" uid="uid://cowot1du66kt2" path="res://game_ui/interact_prompt/interact_prompt.tscn" id="1_knfgu"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_htubn")
+
+[node name="InteractPrompt" parent="." instance=ExtResource("1_knfgu")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -136.0
+offset_right = 32.0
+offset_bottom = -72.0
+grow_vertical = 0
+size_flags_vertical = 8
