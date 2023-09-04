@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cmxf4wn6bqlq8"]
 
-[ext_resource type="PackedScene" uid="uid://cx3gomotuy02j" path="res://world/entities/units/player/player.tscn" id="1_jrkpk"]
+[ext_resource type="PackedScene" uid="uid://dfiju0jy1augx" path="res://world/entities/units/player/player.tscn" id="1_jrkpk"]
 [ext_resource type="Script" path="res://world/game_world.gd" id="1_rgxml"]
 [ext_resource type="PackedScene" uid="uid://cdddjnw17uyyk" path="res://world/entities/props/torch/torch.tscn" id="2_h4ucr"]
 [ext_resource type="Texture2D" uid="uid://lttvodlgsr74" path="res://world/map/tileset/wall.png" id="3_6v0v2"]
@@ -43,7 +43,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(589826, 0, 0, 524290, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 589827, 0, 0, 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 65550, 0, 0, 131086, 0, 0, 196622, 0, 0, 262158, 0, 0, 327694, 0, 0, 393230, 0, 0, 458766, 0, 0, 524302, 0, 0, 655368, 0, 0, 589832, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_jrkpk")]
-position = Vector2(198, 178)
+position = Vector2(264, 216)
 
 [node name="Torch" parent="." instance=ExtResource("2_h4ucr")]
 position = Vector2(583, 296)
