@@ -26,3 +26,4 @@ func set_enabled(value: bool) -> void:
 		_anim_player.play("on")
 		
 	_enabled = value
+	$PointLight2D.enabled = value

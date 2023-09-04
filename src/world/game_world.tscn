@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmxf4wn6bqlq8"]
+[gd_scene load_steps=5 format=3 uid="uid://cmxf4wn6bqlq8"]
 
 [ext_resource type="PackedScene" uid="uid://cx3gomotuy02j" path="res://world/entities/units/player/player.tscn" id="1_jrkpk"]
 [ext_resource type="Script" path="res://world/game_world.gd" id="1_rgxml"]
 [ext_resource type="PackedScene" uid="uid://cdddjnw17uyyk" path="res://world/entities/props/torch/torch.tscn" id="2_h4ucr"]
+[ext_resource type="Texture2D" uid="uid://ys0ppfeq4f1j" path="res://world/entities/props/torch/light.png" id="4_fepi4"]
 
 [node name="GameWorld" type="Node2D"]
 script = ExtResource("1_rgxml")
@@ -12,6 +13,14 @@ position = Vector2(198, 178)
 
 [node name="Torch" parent="." instance=ExtResource("2_h4ucr")]
 position = Vector2(583, 296)
+
+[node name="PointLight2D" type="PointLight2D" parent="Torch"]
+enabled = false
+texture = ExtResource("4_fepi4")
+texture_scale = 0.5
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.133333, 0.133333, 0.133333, 1)
 
 [connection signal="interactable_entered" from="Player" to="." method="_on_player_interactable_entered"]
 [connection signal="interactable_exited" from="Player" to="." method="_on_player_interactable_exited"]
