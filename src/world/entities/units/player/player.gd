@@ -12,8 +12,11 @@ func _process(delta: float) -> void:
 		_handle_interact()
 
 
-func _get_velocity() -> Vector2:
-	return Input.get_vector("move_left", "move_right", "move_up", "move_down") * movespeed
+func _get_velocity(delta: float) -> Vector2:
+	var direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var result = direction * movespeed
+	
+	return result
 
 
 func add_interaction_candidate(candidate: Node2D) -> void:

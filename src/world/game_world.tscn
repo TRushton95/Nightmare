@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cmxf4wn6bqlq8"]
+[gd_scene load_steps=13 format=3 uid="uid://cmxf4wn6bqlq8"]
 
 [ext_resource type="PackedScene" uid="uid://dfiju0jy1augx" path="res://world/entities/units/player/player.tscn" id="1_jrkpk"]
 [ext_resource type="Script" path="res://world/game_world.gd" id="1_rgxml"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://lttvodlgsr74" path="res://world/map/tileset/wall.png" id="3_6v0v2"]
 [ext_resource type="Texture2D" uid="uid://ys0ppfeq4f1j" path="res://world/entities/props/torch/light.png" id="4_fepi4"]
 [ext_resource type="Texture2D" uid="uid://y76gg55rhyuy" path="res://world/map/tileset/ground.png" id="4_osp37"]
+[ext_resource type="PackedScene" uid="uid://b2g1utiywgmj6" path="res://world/entities/units/zombie/zombie.tscn" id="7_ytluv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jiu8"]
 texture = ExtResource("4_osp37")
@@ -29,8 +30,14 @@ tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uvuen")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_u7flg"]
+vertices = PackedVector2Array(0, 0, 1152, 0, 1152, 704, 0, 704)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 1152, 0, 1152, 704, 0, 704)])
+
 [node name="GameWorld" type="Node2D"]
 script = ExtResource("1_rgxml")
+zombie_scene = ExtResource("7_ytluv")
 
 [node name="FloorTileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_hx6wp")
@@ -41,6 +48,9 @@ layer_0/tile_data = PackedInt32Array(0, 1, 0, 65536, 1, 0, 131072, 1, 0, 196608,
 tile_set = SubResource("TileSet_5ed6u")
 format = 2
 layer_0/tile_data = PackedInt32Array(589826, 0, 0, 524290, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 524292, 0, 0, 589828, 0, 0, 589827, 0, 0, 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 65550, 0, 0, 131086, 0, 0, 196622, 0, 0, 262158, 0, 0, 327694, 0, 0, 393230, 0, 0, 458766, 0, 0, 524302, 0, 0, 655368, 0, 0, 589832, 0, 0)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_u7flg")
 
 [node name="Player" parent="." instance=ExtResource("1_jrkpk")]
 position = Vector2(264, 216)

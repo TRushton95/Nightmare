@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b2g1utiywgmj6"]
+
+[ext_resource type="PackedScene" uid="uid://ctamfjq7ysmcg" path="res://world/entities/units/unit.tscn" id="1_0uhyh"]
+[ext_resource type="Texture2D" uid="uid://dxyfc0u8fo5v1" path="res://icon.svg" id="2_f3xxg"]
+[ext_resource type="Script" path="res://world/entities/units/zombie/zombie.gd" id="2_k7hg7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bvj4"]
+size = Vector2(112, 112)
+
+[node name="Zombie" instance=ExtResource("1_0uhyh")]
+modulate = Color(0.580392, 0, 0, 1)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("2_k7hg7")
+movespeed = 200
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_f3xxg")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_0bvj4")
+
+[node name="Line2D" type="Line2D" parent="." index="2"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="3"]
+avoidance_enabled = true
+debug_enabled = true
+
+[node name="PathUpdateTimer" type="Timer" parent="." index="4"]
+wait_time = 0.5
+
+[connection signal="timeout" from="PathUpdateTimer" to="." method="_on_path_update_timer_timeout"]
